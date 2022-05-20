@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";

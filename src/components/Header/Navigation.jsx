@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import styles from "../../styles/header.module.css"
 
 const Navigation = ({ className, linkClassName }) => {
 

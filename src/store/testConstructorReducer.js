@@ -62,8 +62,9 @@ export const testConstructorReducer = (state = defaultState, action) => {
     case "DELETE_TEST_ITEM":
 
       const newTestItemsWithDeletedItem = () => {
-        return state.testItems.filter((item, id) => {
+        return state.testItems.filter((test, id) => {
           if (id !== action.payload) return true
+          else return false
         })
       }
 
@@ -80,6 +81,7 @@ export const testConstructorReducer = (state = defaultState, action) => {
               ...item,
               answers: item.answers.filter((item, id) => {
                 if (id !== action.payload.answerId) return true
+                else return false
               })
             }
           else return item

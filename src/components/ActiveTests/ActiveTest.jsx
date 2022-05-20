@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getDate } from './../../functions/getUkrMonth';
 import { useState } from 'react';
 import TimerElement from '../UI/TimerElement';
@@ -54,7 +54,7 @@ const ActiveTest = ({ test }) => {
             <div><b>Залишилось часу:</b> <TimerElement test={test} /> </div>
             <div className={styles.qrCode}>
                 <b>Відскануйте QR-код для проходження тесту:</b>
-                <img src={src}></img>
+                <img alt='QR код для проходження тесту' src={src}></img>
             </div>
             <ButtonElement onClick={finishTesting} addedClass="finishTest" text="Закінчити тестування" />
             <ButtonElement addedClass="finishTest" text="Переглянути тест" onClick={() => navigate("/myTests/" + test.myTestId)} />

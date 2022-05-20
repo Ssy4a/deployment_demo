@@ -5,7 +5,7 @@ import ButtonElement from './../UI/ButtonElement';
 import { useState } from 'react';
 import MessageElement from './../UI/MessageElement';
 
-const MyTestActivationTime = ({ startTesting, isActive, getTestActivationTime }) => {
+const MyTestActivationTime = ({ startTesting, isActive}) => {
 
     const [time, setTime] = useState({ hours: "0", minutes: "0" })
 
@@ -15,7 +15,7 @@ const MyTestActivationTime = ({ startTesting, isActive, getTestActivationTime })
 
     const validation = () => {
         if (isActive()) return true
-        if (time.hours == 0 && time.minutes == 0) return true
+        if (time.hours === "0" && time.minutes === "0") return true
         return false
     }
 
@@ -38,7 +38,7 @@ const MyTestActivationTime = ({ startTesting, isActive, getTestActivationTime })
                     onChange={e => onTimeInputsChange(e.target)} /> хвилин.
             </span>
             <ButtonElement addedClass="startTesting" disabled={validation()} onClick={() => onStartTestingButtonClick(time)} text="Почати тестування" />
-            {time.hours == 0 && time.minutes == 0 && <MessageElement type="warning" message="Введіть час, доступний на проходження тесту:" />}
+            {time.hours === "0" && time.minutes === "0" && <MessageElement type="warning" message="Введіть час, доступний на проходження тесту:" />}
         </div>
     )
 }

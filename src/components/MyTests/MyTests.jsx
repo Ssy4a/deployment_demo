@@ -9,7 +9,6 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import MyTestItems from './MyTestItems';
 import styles from "../../styles/content.module.css"
-import TitleElement from './../UI/TitleElement';
 
 const MyTests = () => {
     const dispatch = useDispatch()

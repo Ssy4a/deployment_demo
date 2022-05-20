@@ -69,7 +69,7 @@ const Registration = () => {
               required: "Обов`язкове поле",
               minLength: { value: 8, message: "Мінімальна довжина паролю - 8 символів" }
             })} />
-          <label>Парольd</label>
+          <label>Пароль</label>
           {errors.password && <p>{errors.password.message}</p>}
         </div>
 
