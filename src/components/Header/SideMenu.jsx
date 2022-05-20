@@ -36,7 +36,7 @@ export const SideMenu = () => {
 
     return (
         <div ref={node} className={`${styles.menu} ${getMenuClasses()}`}>
-            <Navigation className={styles.menuColumn} linkClassName={styles.menuLink} />
+            <Navigation  className={styles.menuColumn} linkClassName={styles.menuLink} />
         </div>
     )
 };
