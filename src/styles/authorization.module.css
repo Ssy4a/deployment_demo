@@ -1,0 +1,87 @@
+.authorizationWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 30px);
+    max-width: 100%;
+}
+
+.authorizationFont {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #6B7CDB;
+    padding: 0px 20px 20px 20px;
+    box-shadow: 1px 3px 5px 0px #b4badf;
+}
+
+@media (min-width: 600px) {
+    .authorizationFont {
+        width: 600px;
+    }
+}
+
+.authorizationInput {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    position: relative;
+    height: 60px;
+    padding: 10px 0px;
+    margin: 0px 0px 10px 0px;
+}
+
+.authorizationInput input {
+    color: white;
+    font-weight: 800;
+    width: 100%;
+    font-size: 20px;
+    height: 100%;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+}
+
+.authorizationInput input:focus~label,
+.authorizationInput input:valid~label {
+    transform: translateY(-24px);
+    font-size: 15px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.authorizationInput label {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    color: white;
+    pointer-events: none;
+}
+
+.submitButton {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    background-color: #F7A350;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 1px 1px 4px #3f4981;
+    width: 100%;
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+.message {
+    color: white;
+    margin-top: 25px;
+}
+
+.link {
+    color: white;
+}

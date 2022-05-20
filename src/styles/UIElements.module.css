@@ -1,0 +1,214 @@
+.titleElement {
+    padding: 30px 0px 15px 0px;
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.secondTitle {
+    padding: 10px 0px 10px 0px;
+    font-size: 20px;
+}
+
+.inputElement {
+    width: 100%;
+    position: relative;
+    height: 60px;
+    padding: 10px 0px;
+    margin: 0px 0px 10px 0px;
+}
+
+.inputElement input {
+    color: white;
+    font-weight: 800;
+    width: 100%;
+    font-size: 20px;
+    height: 100%;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+}
+
+.inputElement input:focus~label,
+.inputElement input:valid~label {
+    transform: translateY(-24px);
+    font-size: 15px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.inputElement label {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    color: white;
+    pointer-events: none;
+}
+
+.testSearchInput {
+    margin-right: 20px;
+    min-width: 360px;
+    max-width: 650px;
+}
+
+.newAnswerInput {
+    padding-right: 33px;
+}
+
+.newAnswerInput input {
+    border-bottom: 2px solid #a1a2aa;
+}
+
+.newAnswerInput label {
+    color: #a1a2aa;
+}
+
+.testInfoInput input {
+    border-bottom: 2px solid white;
+}
+
+.answerInput input {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    border-bottom: 2px solid #a1a2aa;
+}
+
+.answerInput label {
+    color: #a1a2aa;
+}
+
+.answerInput input:focus {
+    border-bottom: 2px solid #6B7CDB;
+}
+
+.textAreaElement {
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-bottom: 2px solid #a1a2aa;
+    background-color: #f9faff;
+}
+
+.textAreaElement::placeholder {
+    color: #a1a2aa;
+}
+
+.textAreaElement:focus {
+    border-bottom: 2px solid #6B7CDB;
+}
+
+.button {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    background-color: #F7A350;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 1px 1px 4px #3f4981;
+}
+
+.accountButton{
+    margin-top: 10px;
+    width: 220px;
+}
+
+.errorButton{
+    font-size: 22px;
+    width: 350px;
+    height: 60px;
+    margin-top: 30px;
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+.finishTest {
+    margin-top: 10px;
+    width: 100%;
+    height: 55px;
+}
+
+.finishTest:hover {
+    background-color: #F8AD62;
+}
+
+.saveTest {
+    width: 100%;
+    height: 70px;
+    border-radius: 20px;
+    margin: 10px 0px
+}
+
+.startTesting {
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 100%;
+    height: 70px;
+}
+
+.newQuestion {
+    width: 100%;
+    min-width: 338px;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 3px dashed white;
+    height: 70px;
+    margin: 10px 0px 10px 0px;
+}
+
+.newQuestion ::before {
+    font-size: 40px;
+    margin: 0px 20px 0px 0px;
+    padding: 0px 10px;
+    content: "+";
+    border: 0px solid #77D520;
+    background-color: #77D520;
+    border-radius: 50%;
+}
+
+.message {
+    margin-top: 20px;
+    height: 26px;
+    font-family: Tahoma, Geneva, Arial, sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.message span::before {
+    padding: 0px 10px 0px 10px;
+    margin: 0px 3px 0px 3px;
+    width: 8px;
+    height: 8px;
+    content: "";
+    background-size: cover
+}
+
+.testConstructorMessage{
+    margin-bottom: 15px;
+}
+
+.warning {
+    background-color: #fff8c4;
+    border: 1px solid #f2c779;
+}
+
+.warning span::before {
+    background-image: url(../icons/warning.png);
+}
+
+.error {
+    background-color: #ffecec;
+    border: 1px solid #f5aca6;
+}
+
+.error span::before {
+    background-image: url(../icons/error2.png);
+}

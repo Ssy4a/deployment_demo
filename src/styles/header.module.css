@@ -1,0 +1,140 @@
+.header {
+    height: 120px;
+}
+
+.row {
+    padding: 40px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.homeLink {
+    position: relative;
+    bottom: 5px;
+    margin-right: 25px;
+    text-decoration: none;
+    background-color: #F8AD62;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 10px 20px;
+    box-shadow: 1px 1px 5px 0px #b4badf;
+}
+
+.rightRow {
+    position: relative;
+    top: 10px;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightRow>* {
+    padding: 0px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .rightRow {
+        display: none;
+    }
+}
+
+.burgerMenuButton span {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 7px;
+    background-color: #5967b4;
+    z-index: 100;
+}
+
+.burgerMenuButton button {
+    display: block;
+    transform-origin: 16px 11px;
+    float: left;
+    margin-right: 29px;
+    outline: 0;
+    border: 0;
+    padding: 8px 0px 0px 40px;
+    background: none;
+}
+
+.active span {
+    transform: rotate(45deg) translate(10px, 10px);
+    width: 40px;
+}
+
+.active.burgerMenuButton :nth-of-type(2) {
+    background-color: transparent;
+    opacity: none;
+    pointer-events: none;
+}
+
+.active :nth-of-type(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+    width: 40px;
+}
+
+.menu {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 20;
+    display: block;
+    min-width: 80%;
+    max-width: 100%;
+    padding: 30px 0px 0px 20px;
+    align-items: stretch;
+    background-color: #5a68b6;
+    transform: translateX(-100%);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@media (min-width: 1000px) {
+    .burgerMenuButton {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .rightRow {
+        display: none;
+    }
+}
+
+.menuIsOpen.menu {
+    transform: translateX(0);
+}
+
+.menuColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuLink {
+    padding: 10px 0px 10px 0px;
+    color: white;
+    text-decoration: 0;
+    font-weight: 600;
+    font-size: 20px;
+    width: 93%;
+}
+
+.menuLink:first-child {
+    font-size: 22px;
+    border-bottom: 3px solid white;
+}
+
+.menuLink:last-child {
+    padding: 10px 0px 10px 0px;
+    border-top: 3px solid white;
+}

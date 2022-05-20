@@ -1,0 +1,166 @@
+.testConstructor {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: #6B7CDB;
+    box-shadow: 1px 3px 5px 0px #b4badf;
+    min-width: 100%;
+    padding: 0px 20px;
+}
+
+.testInfo {
+    display: inline-block;
+}
+
+.testManipulation {
+    display: inline-block;
+    position: relative;
+    top: 25px;
+}
+
+.testManipulation :first-child {
+    margin-bottom: 10px;
+}
+
+.testManipulation button {
+    width: 220px;
+}
+
+.testRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    max-width: 100vw;
+}
+
+.form {
+    width: calc(100vw - 40px);
+    height: 100%;
+    padding: 30px 0px 0px 0px;
+    z-index: 2;
+}
+
+.testItems {
+    margin: 30px 0px 10px 0px;
+}
+
+.testItem {
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin: 10px 0px 2px 0px;
+    background-color: #ffffff;
+    border-left: 44px solid #E0E2EE;
+    box-shadow: 1px 3px 5px 0px #5967b4;
+}
+
+.rightTestItem {
+    border-left: 44px solid #e2ffc8;
+}
+
+.wrongTestItem {
+    border-left: 44px solid #ffd0c5;
+}
+
+.testInputs {
+    z-index: 5;
+    background-color: antiquewhite;
+}
+
+.answerRow {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+    right: 49px;
+    width: calc(100% + 47px);
+}
+
+.checkbox {
+    cursor: pointer;
+    margin: 14px 25px 13px 0px;
+    width: 25px;
+    height: 25px;
+}
+
+.myCheckbox {
+    cursor: not-allowed;
+    margin: 14px 25px 13px 0px;
+    width: 25px;
+    height: 25px;
+}
+
+.deleteAnswerButton {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    margin: 10px 0px 0px 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.deleteAnswerButton:before, .deleteAnswerButton:after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 4px;
+    background: #a1a2aa;
+    margin: -6px 0px 0px -16px;
+}
+
+.deleteAnswerButton:before {
+    transform: rotate(45deg);
+}
+
+.deleteAnswerButton:after {
+    transform: rotate(-45deg);
+}
+
+.deleteQuestionButton {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    background-image: url(../icons/delete2.png);
+    background-size: cover;
+    position: relative;
+    padding-left: 20px;
+    left: calc(100% - 29px);
+    top: -5px
+}
+
+.newQuestionButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.myAnswer {
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    border-bottom: 2px solid #a1a2aa;
+}
+
+
+.myQuestion {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.rightAnswer {
+    background-color: #f2ffe7;
+    border-radius: 5px;
+    border-bottom: 5px solid #caff9b;
+}
+
+.wrongAnswer {
+    border-radius: 5px;
+    background-color: #fff2f0;
+    border-bottom: 5px solid #ffcec7;
+}
