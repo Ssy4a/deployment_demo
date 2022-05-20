@@ -41,7 +41,7 @@ const ActiveTest = ({ test }) => {
     }
 
     useEffect(() => {
-        QRCode.toDataURL(`${UrlApp}/${test._id}`).then((link) => {
+        QRCode.toDataURL(`${UrlApp}/takeATest/${test._id}`).then((link) => {
             setSrc(link)
         })
     }, [])
