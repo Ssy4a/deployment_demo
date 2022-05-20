@@ -11,6 +11,7 @@ import TitleElement from './../UI/TitleElement';
 import LoadingElement from './../UI/LoadingElement';
 import MessageElement from './../UI/MessageElement';
 import MyTestActivationTime from './MyTestActivationTime';
+import { UrlAPI } from './../../constants';
 
 const MyTestItems = ({ test, userId }) => {
 
@@ -23,7 +24,7 @@ const MyTestItems = ({ test, userId }) => {
     }, [])
 
     const startTesting = (time) => {
-        fetch("http://localhost:5000/tests/activateTest", {
+        fetch(`${UrlAPI}/tests/activateTest`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -37,7 +38,7 @@ const MyTestItems = ({ test, userId }) => {
     }
 
     const deleteTest = () => {
-        fetch("http://localhost:5000/tests/test", {
+        fetch(`${UrlAPI}/tests/test`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

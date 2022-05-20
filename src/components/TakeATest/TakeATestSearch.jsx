@@ -5,6 +5,7 @@ import ButtonElement from './../UI/ButtonElement';
 import InputElement from './../UI/InputElement';
 import styles from "./../../styles/content.module.css"
 import TitleElement from './../UI/TitleElement';
+import { UrlAPI } from './../../constants';
 
 const TakeATestSearch = () => {
     const [error, setError] = useState(null)
@@ -12,7 +13,7 @@ const TakeATestSearch = () => {
     const [activeTestIdValue, setActiveTestIdValue] = useState(null)
 
     const startTesting = () => {
-        fetch(`http://localhost:5000/tests/activeTest/${activeTestIdValue}`, {
+        fetch(`${UrlAPI}/tests/activeTest/${activeTestIdValue}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

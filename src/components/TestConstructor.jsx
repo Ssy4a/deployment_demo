@@ -8,6 +8,7 @@ import styles from "../styles/testConstructor.module.css"
 import InputElement from './UI/InputElement';
 import ButtonElement from './UI/ButtonElement';
 import MessageElement from './UI/MessageElement';
+import { UrlAPI } from './../constants';
 
 const TestConstructor = ({ testToEditId }) => {
 
@@ -24,7 +25,7 @@ const TestConstructor = ({ testToEditId }) => {
 
     useEffect(() => {
         if (testToEditId) {
-            fetch(`http://localhost:5000/tests/test/${testToEditId}`)
+            fetch(`${UrlAPI}/tests/test/${testToEditId}`)
                 .then(res => res.json())
                 .then(json => passEditingTestData(json))
         }
@@ -32,7 +33,7 @@ const TestConstructor = ({ testToEditId }) => {
 
     async function submitTest() {
         if (testToEditId) {
-            fetch("http://localhost:5000/tests/test", {
+            fetch(`${UrlAPI}/tests/test`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -55,7 +56,7 @@ const TestConstructor = ({ testToEditId }) => {
                 .catch(err => setError(err))
         }
         else {
-            fetch("http://localhost:5000/tests/test", {
+            fetch(`${UrlAPI}/tests/test`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 export const fetchUserInformation = () => {
     return function (dispatch) {
-        fetch("http://localhost:5000/auth/userInfo", {
+        fetch(`${UrlAPI}/auth/userInfo`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
             }

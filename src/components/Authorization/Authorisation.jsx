@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import MessageElement from '../UI/MessageElement';
 import styles from "../../styles/authorization.module.css";
 import TitleElement from './../UI/TitleElement';
+import { UrlAPI } from './../../constants';
 
 const Authorisation = () => {
 
@@ -19,7 +20,7 @@ const Authorisation = () => {
     }, [])
 
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/auth/login", {
+        fetch(`${UrlAPI}/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)

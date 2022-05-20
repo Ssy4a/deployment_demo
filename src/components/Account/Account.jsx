@@ -6,6 +6,7 @@ import styles from "../../styles/content.module.css"
 import TitleElement from './../UI/TitleElement';
 import ButtonElement from './../UI/ButtonElement';
 import LoadingElement from './../UI/LoadingElement';
+import { UrlAPI } from './../../constants';
 
 const Account = () => {
 
@@ -22,7 +23,7 @@ const Account = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/auth/userInfo", {
+        fetch(`${UrlAPI}/auth/userInfo`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
             }

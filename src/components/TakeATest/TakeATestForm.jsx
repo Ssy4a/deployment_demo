@@ -6,6 +6,7 @@ import TakeATestItem from './TakeATestItem';
 import MessageElement from './../UI/MessageElement';
 import TitleElement from './../UI/TitleElement';
 import ButtonElement from '../UI/ButtonElement';
+import { UrlAPI } from './../../constants';
 
 const TakeATestForm = () => {
 
@@ -17,7 +18,7 @@ const TakeATestForm = () => {
 
     useEffect(() => {
         let cleanupFunction = false
-        fetch(`http://localhost:5000/tests/activeTest/${activeTestId}`, {
+        fetch(`${UrlAPI}/tests/activeTest/${activeTestId}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -54,7 +55,7 @@ const TakeATestForm = () => {
 
     const submitHandler = () => {
         console.log(isRightArr)
-        fetch("http://localhost:5000/tests/testResult", {
+        fetch(`${UrlAPI}/tests/testResult`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

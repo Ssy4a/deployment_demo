@@ -1,0 +1,1 @@
+export const UrlAPI = "https://diploma-backend.vercel.app"

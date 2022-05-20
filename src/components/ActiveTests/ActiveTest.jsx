@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import MessageElement from './../UI/MessageElement';
 import styles from "./../../styles/content.module.css"
 import ButtonElement from './../UI/ButtonElement';
+import { UrlAPI } from './../../constants';
 
 const ActiveTest = ({ test }) => {
 
@@ -20,7 +21,7 @@ const ActiveTest = ({ test }) => {
     const navigate = useNavigate()
 
     const finishTesting = () => {
-        fetch(`http://localhost:5000/tests/activeTest/${test._id}`, {
+        fetch(`${UrlAPI}/tests/activeTest/${test._id}`, {
             method: "DELETE",
             headers: { "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}` },
         })

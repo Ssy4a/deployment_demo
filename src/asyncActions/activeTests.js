@@ -1,6 +1,8 @@
+import { UrlAPI } from './../constants';
+
 export const fetchActiveTests = () => {
     return function (dispatch) {
-        fetch("http://localhost:5000/tests/activeTests", {
+        fetch(`${UrlAPI}/tests/activeTests`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
             }

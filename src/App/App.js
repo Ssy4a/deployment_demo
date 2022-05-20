@@ -5,6 +5,7 @@ import LoadingElement from "../components/UI/LoadingElement";
 import AppAuthorized from './AppAuthorized';
 import GlobalStyle from "../styles/GlobalStyles";
 import AppNotAuthorized from "./AppNotAuthorized";
+import { UrlAPI } from "../constants";
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem("JWTAccessToken")) {
       setLoading(true)
-      fetch("http://localhost:5000/auth/refresh", {
+      fetch(`${UrlAPI}/auth/refresh`, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
         },

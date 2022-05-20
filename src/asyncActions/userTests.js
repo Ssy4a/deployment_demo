@@ -1,6 +1,8 @@
+import { UrlAPI } from './../constants';
+
 export const fetchUserTests = (userId) => {
     return function (dispatch) {
-        fetch(`http://localhost:5000/tests/userTests/${userId}`)
+        fetch(`${UrlAPI}/tests/userTests/${userId}`)
             .then(res => {
                 if (res.ok) {
                     return res.json()

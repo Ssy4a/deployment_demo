@@ -10,6 +10,7 @@ import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import TestResultsRouter from './ResultItems/TestResultsRouter';
 import MessageElement from './../UI/MessageElement';
+import { UrlAPI } from './../../constants';
 
 const TestsResultsRoutes = () => {
 
@@ -27,7 +28,7 @@ const TestsResultsRoutes = () => {
         }
 
         let cleanupFunction = false
-        fetch(`http://localhost:5000/tests/testResults`, {
+        fetch(`${UrlAPI}/tests/testResults`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
             }

@@ -5,6 +5,7 @@ import MessageElement from '../UI/MessageElement';
 import { Link } from 'react-router-dom';
 import styles from "../../styles/authorization.module.css";
 import TitleElement from '../UI/TitleElement';
+import { UrlAPI } from './../../constants';
 
 const Registration = () => {
 
@@ -15,7 +16,7 @@ const Registration = () => {
   password.current = watch("password", "")
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/auth/registration", {
+    fetch(`${UrlAPI}/auth/registration`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
