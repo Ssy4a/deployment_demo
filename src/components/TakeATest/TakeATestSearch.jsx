@@ -5,7 +5,6 @@ import ButtonElement from './../UI/ButtonElement';
 import InputElement from './../UI/InputElement';
 import styles from "./../../styles/content.module.css"
 import TitleElement from './../UI/TitleElement';
-import { UrlAPI } from './../../constants';
 
 const TakeATestSearch = () => {
     const [error, setError] = useState(null)

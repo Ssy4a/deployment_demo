@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import MessageElement from './../UI/MessageElement';
 import styles from "./../../styles/content.module.css"
 import ButtonElement from './../UI/ButtonElement';
-import { UrlAPI } from './../../constants';
+import { UrlAPI, UrlApp } from './../../constants';
 
 const ActiveTest = ({ test }) => {
 
@@ -41,7 +41,7 @@ const ActiveTest = ({ test }) => {
     }
 
     useEffect(() => {
-        QRCode.toDataURL(`http://localhost:3000/activeTests/${test._id}`).then((link) => {
+        QRCode.toDataURL(`${UrlApp}/${test._id}`).then((link) => {
             setSrc(link)
         })
     }, [])
