@@ -54,7 +54,7 @@ const ActiveTest = ({ test }) => {
             <div><b>Час активації:</b> {getDate(activatedAtDate)}</div>
             <div><b>Залишилось часу:</b> <TimerElement test={test} /> </div>
             <div className={styles.qrCode}>
-                <b>Відскануйте QR-код для проходження тесту:вввв</b>
+                <b>Відскануйте QR-код для проходження тесту:</b>
                 <img alt='QR код для проходження тесту' src={src}></img>
             </div>
             <ButtonElement onClick={finishTesting} addedClass="finishTest" text="Закінчити тестування" />
