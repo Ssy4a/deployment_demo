@@ -1,13 +1,12 @@
 import React from 'react'
 import TestResultItem from './TestResultItem';
-import styles from "../../../styles/content.module.css"
 import TitleElement from './../../UI/TitleElement';
 import { getRating } from './../../../functions/getRating';
 
 const TestResult = ({ result, test }) => {
 
     return (
-        <div className={styles.contentFont}>
+        <div>
             <TitleElement text={test.name} />
             <TitleElement text={test.description} addedClass="secondTitle" />
             <div>

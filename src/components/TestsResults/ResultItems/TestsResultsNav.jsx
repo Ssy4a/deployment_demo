@@ -11,7 +11,7 @@ const TestsResultsNav = ({ resultsWithMatchingId, test }) => {
     }
 
     return (
-        <div className={styles.contentFont}>
+        <div>
             <TitleElement text={`Результати тесту "${test.name}"`} />
             <div className={styles.linksRow}>
                 {resultsWithMatchingId.length > 0 ?

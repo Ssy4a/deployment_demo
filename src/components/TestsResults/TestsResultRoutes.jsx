@@ -11,6 +11,7 @@ import { Routes } from 'react-router-dom';
 import TestResultsRouter from './ResultItems/TestResultsRouter';
 import MessageElement from './../UI/MessageElement';
 import { UrlAPI } from './../../constants';
+import styles from "../../styles/content.module.css"
 
 const TestsResultsRoutes = () => {
 
@@ -58,12 +59,18 @@ const TestsResultsRoutes = () => {
         return `${path}/*`
     }
 
+    const getIsLoading = () => {
+        if (loading) return true
+        if (myTests.isLoading) return true
+        return false
+    }
+
     return (
-        <div>
+        <div className={styles.contentFont}>
             {loading || myTests.isLoading
                 ? <LoadingElement />
                 : <Routes>
-                    <Route element={<TestResultNav myTests={myTests.myTests} />} path="" />
+                    <Route element={<TestResultNav getIsLoading={getIsLoading} myTests={myTests.myTests} />} path="" />
                     {myTests.myTests.map(test => <Route element={<TestResultsRouter results={results} test={test} />} key={test._id} path={getPath(test._id)} />)}
                 </Routes>
             }

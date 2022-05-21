@@ -1,6 +1,5 @@
 import React from 'react'
 import ResultLink from './ResultItems/ResultLink'
-import styles from "../../styles/content.module.css"
 
 const TestResults = ({ results, test }) => {
 
@@ -9,7 +8,7 @@ const TestResults = ({ results, test }) => {
     })
 
     return (
-        <div className={styles.contentFont}>
+        <div>
             {resultsWithMatchingId.map(result => <ResultLink result={result} />)}
         </div>
     )
