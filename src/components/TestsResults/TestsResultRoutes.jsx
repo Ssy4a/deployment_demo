@@ -54,18 +54,19 @@ const TestsResultsRoutes = () => {
         return () => cleanupFunction = true
     }, [])
 
-    if (loading || myTests.isLoading) return <LoadingElement />
-
     const getPath = (path) => {
         return `${path}/*`
     }
 
     return (
         <div>
-            <Routes>
-                <Route element={<TestResultNav myTests={myTests.myTests} />} path="" />
-                {myTests.myTests.map(test => <Route element={<TestResultsRouter results={results} test={test} />} key={test._id} path={getPath(test._id)} />)}
-            </Routes>
+            {loading || myTests.isLoading
+                ? <LoadingElement />
+                : <Routes>
+                    <Route element={<TestResultNav myTests={myTests.myTests} />} path="" />
+                    {myTests.myTests.map(test => <Route element={<TestResultsRouter results={results} test={test} />} key={test._id} path={getPath(test._id)} />)}
+                </Routes>
+            }
             {error && <MessageElement type="error" message={error} />}
         </div>
     )

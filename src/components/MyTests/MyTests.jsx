@@ -31,13 +31,13 @@ const MyTests = () => {
     return (
         <div>
             <div className={styles.contentFont}>
-                {myTests.myTests.length === 0 && <NoTests />}
                 <Routes>
                     <Route element={<MyTest myTests={myTests} userId={userId} />} path={""} />
                     {
                         myTests.myTests.map(test => <Route key={test._id} element={<MyTestItems test={test} userId={userId} />} path={test._id} />)
                     }
                 </Routes>
+                {myTests.myTests.length === 0 && <NoTests />}
             </div>
         </div>
     )

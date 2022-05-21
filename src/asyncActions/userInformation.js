@@ -1,3 +1,5 @@
+import { UrlAPI } from './../constants';
+
 export const fetchUserInformation = () => {
     return function (dispatch) {
         fetch(`${UrlAPI}/auth/userInfo`, {

@@ -114,12 +114,12 @@
     box-shadow: 1px 1px 4px #3f4981;
 }
 
-.accountButton{
+.accountButton {
     margin-top: 10px;
     width: 220px;
 }
 
-.errorButton{
+.errorButton {
     font-size: 22px;
     width: 350px;
     height: 60px;
@@ -176,7 +176,8 @@
 
 .message {
     margin-top: 20px;
-    height: 26px;
+    height: 100%;
+    padding: 3px;
     font-family: Tahoma, Geneva, Arial, sans-serif;
     font-size: 14px;
     border-radius: 5px;
@@ -191,7 +192,7 @@
     background-size: cover
 }
 
-.testConstructorMessage{
+.testConstructorMessage {
     margin-bottom: 15px;
 }
 
@@ -211,4 +212,32 @@
 
 .error span::before {
     background-image: url(../icons/error2.png);
+}
+
+.loading {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.loading:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading 1.2s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

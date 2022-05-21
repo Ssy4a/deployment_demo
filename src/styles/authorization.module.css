@@ -4,6 +4,7 @@
     align-items: center;
     min-height: calc(100vh - 30px);
     max-width: 100%;
+    min-width: 100%;
 }
 
 .authorizationFont {

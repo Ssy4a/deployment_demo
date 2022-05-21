@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from "../../styles/UIElements.module.css"
 
 const LoadingElement = () => {
   return (
-    <div>Завантаження...</div>
+    <div className={styles.loading}></div>
   )
 }
 
