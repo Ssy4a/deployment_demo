@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import InputElement from '../UI/InputElement';
 import styles from "../../styles/testConstructor.module.css"
 
-const NewTestItemAnswer = ({ answer, answerId, testItemId }) => {
+const NewTestItemAnswer = ({ answer, answerId, testItemId, oneTestItemAnswer }) => {
 
     const dispatch = useDispatch()
     const deleteAnswer = () => { dispatch({ type: "DELETE_ANSWER", payload: { answerId, testItemId } }) }
@@ -16,7 +16,7 @@ const NewTestItemAnswer = ({ answer, answerId, testItemId }) => {
                 onChange={onCheckboxChange}></input>
             <InputElement isAnswer={true} addedClass="answerInput" onChange={event => onAnswerChange(event.target.value)}
                 value={answer.answer} placeholder="Варіант відповіді" />
-            <button onClick={deleteAnswer} className={styles.deleteAnswerButton}></button>
+            <button disabled={oneTestItemAnswer()} onClick={deleteAnswer} className={styles.deleteAnswerButton}></button>
         </div>
     )
 }

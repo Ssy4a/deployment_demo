@@ -4,7 +4,7 @@ import styles from "../../../styles/testConstructor.module.css"
 const TestResultAnswer = ({ answer, testAnswersResultsChecked, testAnswersResults }) => {
 
     const getIsRightClass = () => {
-        if (testAnswersResultsChecked === true) return "rightAnswer"
+        if (testAnswersResultsChecked === true && testAnswersResults === true) return "rightAnswer"
         if (testAnswersResultsChecked === false) return "wrongAnswer"
     }
 

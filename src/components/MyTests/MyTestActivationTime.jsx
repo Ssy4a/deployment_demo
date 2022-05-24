@@ -5,7 +5,7 @@ import ButtonElement from './../UI/ButtonElement';
 import { useState } from 'react';
 import MessageElement from './../UI/MessageElement';
 
-const MyTestActivationTime = ({ startTesting, isActive}) => {
+const MyTestActivationTime = ({ startTesting, isActive }) => {
 
     const [time, setTime] = useState({ hours: "0", minutes: "0" })
 
@@ -13,10 +13,16 @@ const MyTestActivationTime = ({ startTesting, isActive}) => {
         startTesting(hours * 3600000 + minutes * 60000)
     }
 
-    const validation = () => {
-        if (isActive()) return true
-        if (time.hours === "0" && time.minutes === "0") return true
+    const timeIsInvalid = () => {
+        if ((time.hours === "0" || time.hours === "" || time.hours === "00")
+            && (time.minutes === "00" || time.minutes === "0" || time.minutes === ""))
+            return true
         return false
+    }
+
+    const startTestingValidationFail = () => {
+        if (isActive()) return true
+        return timeIsInvalid()
     }
 
     const onTimeInputsChange = (target) => {
@@ -37,8 +43,8 @@ const MyTestActivationTime = ({ startTesting, isActive}) => {
                 <input pattern="[0-9]+" className={styles.timeInput} maxlength="2" name="minutesInput" value={time.minutes}
                     onChange={e => onTimeInputsChange(e.target)} /> хвилин.
             </span>
-            <ButtonElement addedClass="startTesting" disabled={validation()} onClick={() => onStartTestingButtonClick(time)} text="Почати тестування" />
-            {time.hours === "0" && time.minutes === "0" && <MessageElement type="warning" message="Введіть час, доступний на проходження тесту:" />}
+            <ButtonElement addedClass="startTesting" disabled={startTestingValidationFail()} onClick={() => onStartTestingButtonClick(time)} text="Почати тестування" />
+            {timeIsInvalid() && <MessageElement type="warning" message="Введіть час, доступний на проходження тесту:" />}
         </div>
     )
 }

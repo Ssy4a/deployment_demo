@@ -7,7 +7,7 @@ import TextAreaElement from '../UI/TextAreaElement';
 import InputElement from './../UI/InputElement';
 
 
-const NewTestItem = ({ testItem, testItemId, setValidationError }) => {
+const NewTestItem = ({ testItem, testItemId, setValidationError, oneTestItem }) => {
 
     const dispatch = useDispatch()
     const newTest = useSelector(state => state.testConstructor)
@@ -18,6 +18,10 @@ const NewTestItem = ({ testItem, testItemId, setValidationError }) => {
 
     const deleteTestItem = () => { dispatch({ type: "DELETE_TEST_ITEM", payload: testItemId }) }
     const onQuestionChange = (targetValue) => { dispatch({ type: "ON_QUESTION_CHANGE", payload: { targetValue, testItemId } }) }
+    const oneTestItemAnswer = () => {
+        if (testItem.answers.length === 1) return true
+        return false
+    }
 
     useEffect(() => {
         const testItemsInvalidCheck = (item) => {
@@ -36,16 +40,16 @@ const NewTestItem = ({ testItem, testItemId, setValidationError }) => {
 
     return (
         <div className={styles.testItem}>
-            <button onClick={deleteTestItem} className={styles.deleteQuestionButton}></button>
+            <button disabled={oneTestItem()} onClick={deleteTestItem} className={styles.deleteQuestionButton}></button>
 
             <TextAreaElement onChange={event => onQuestionChange(event.target.value, testItemId)}
                 value={testItem.question} placeholder="Запитання" />
 
             {testItem.answers.map((answer, answerId) => <NewTestItemAnswer
                 answer={answer} testItemId={testItemId} answerId={answerId}
-                key={answerId} setValidationError={setValidationError} />)}
+                key={answerId} oneTestItemAnswer = {oneTestItemAnswer} />)}
             <InputElement onFocus={addNewAnswer} addedClass="newAnswerInput"
-             placeholder="Додати новий варіант відповіді" />
+                placeholder="Додати новий варіант відповіді" />
         </div>
     )
 }

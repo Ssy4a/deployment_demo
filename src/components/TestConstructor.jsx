@@ -78,6 +78,11 @@ const TestConstructor = ({ testToEditId }) => {
         navigate("/myTests")
     }
 
+    const oneTestItem = () => {
+        if (newTest.testItems.length === 1) return true
+        return false
+    }
+
     return (
         <div className={styles.test}>
             <div className={styles.testConstructor}>
@@ -87,7 +92,7 @@ const TestConstructor = ({ testToEditId }) => {
                     <div className={styles.testItems}>
                         {
                             newTest.testItems.map((testItem, testItemId) =>
-                                <NewTestItem testItem={testItem} testItemId={testItemId}
+                                <NewTestItem oneTestItem={oneTestItem} testItem={testItem} testItemId={testItemId}
                                     key={testItemId} setValidationError={setValidationError}
                                 />)
                         }
