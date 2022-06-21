@@ -2,7 +2,12 @@ import { UrlAPI } from './../constants';
 
 export const fetchUserTests = (userId) => {
     return function (dispatch) {
-        fetch(`${UrlAPI}/tests/userTests/${userId}`)
+        dispatch({ type: "SET_USER_TESTS_IS_LOADING", payload: true })
+        fetch(`${UrlAPI}/tests/userTests/${userId}`, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
+            }
+        })
             .then(res => {
                 if (res.ok) {
                     return res.json()

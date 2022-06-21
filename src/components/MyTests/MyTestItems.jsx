@@ -12,13 +12,16 @@ import LoadingElement from './../UI/LoadingElement';
 import MessageElement from './../UI/MessageElement';
 import MyTestActivationTime from './MyTestActivationTime';
 import { UrlAPI } from './../../constants';
+import { useState } from 'react';
+import ModalElement from './../UI/ModalElement';
 
 const MyTestItems = ({ test, userId }) => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const activeTests = useSelector(state => state.activeTests)
-    
+    const [modalActive, setModalActive] = useState(false)
+
     useEffect(() => {
         dispatch(fetchActiveTests())
     }, [])
@@ -26,7 +29,10 @@ const MyTestItems = ({ test, userId }) => {
     const startTesting = (time) => {
         fetch(`${UrlAPI}/tests/activateTest`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}`
+            },
             body: JSON.stringify({
                 id: test._id,
                 ms: time
@@ -70,15 +76,17 @@ const MyTestItems = ({ test, userId }) => {
                         <TitleElement text={test.name} />
                         <TitleElement text={test.description} addedClass="secondTitle" />
                     </div>
-
                     <div className={styles.testManipulation}>
                         <ButtonElement disabled={isActive()} onClick={() => navigate(`/editTest/${test._id}`)} text="Редагувати тест" />
-                        <ButtonElement disabled={isActive()} onClick={deleteTest} text="Видалити тест" />
+                        <ButtonElement disabled={isActive()} onClick={() => setModalActive(true)} text="Видалити" />
                     </div>
+
                 </div>
                 <div>{test.testItems.map(testItem => <MyTestItem testItem={testItem} key={testItem._id} />)}</div>
                 <MyTestActivationTime isActive={isActive} startTesting={startTesting} />
                 {isActive() && <MessageElement type="warning" message="Закінчіть тестування щоб отримати доступ до дій з тестом." />}
+                <ModalElement modalActive={modalActive} setModalActive={setModalActive} modalTitle="Видалення тесту"
+                    modalText="Ви збираєтесь видалити тест, відновити його буде неможливо. Продовжити?" acceptButtonText="Видалити" onClick={deleteTest} />
             </div>
         )
     }

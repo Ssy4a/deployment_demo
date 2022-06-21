@@ -21,6 +21,12 @@
     }
 }
 
+@media (max-width: 600px) {
+    .authorizationFont {
+        min-width: 100%;
+    }
+}
+
 .authorizationInput {
     color: white;
     text-decoration: none;
@@ -28,7 +34,7 @@
     position: relative;
     height: 60px;
     padding: 10px 0px;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 30px 0px;
 }
 
 .authorizationInput input {
@@ -40,6 +46,14 @@
     border: none;
     border-bottom: 2px solid white;
     background-color: transparent;
+}
+
+.authorizationInput p {
+    margin-top: 3px;
+    background-color: rgb(245, 106, 106);
+    padding: 0px 10px;
+    border-radius: 3px;
+    color: white;
 }
 
 .authorizationInput input:focus~label,
@@ -85,4 +99,44 @@
 
 .link {
     color: white;
+}
+
+.changeInfo label {
+    color: #3f4981;
+}
+
+.changeInfo input {
+    color: #3f4981;
+}
+
+.changeInfo input:focus~label,
+.changeInfo input:valid~label {
+    color: #3f4981;
+}
+
+
+.changeInfo input {
+    border-bottom: 2px solid #3f4981;
+}
+
+.changeInfo {
+    color: #3f4981;
+}
+
+.changeAccountTitle {
+    color: #3f4981;
+}
+
+.loadingRow {
+    margin-top: 10px;
+    display: flex;
+    margin-bottom: -5px;
+}
+
+.successLoading {
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
+    background-image: url(../icons/success.png);
+    background-size: cover;
 }

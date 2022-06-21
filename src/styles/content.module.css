@@ -1,4 +1,5 @@
 .contentFont {
+    min-width: 350px;
     border-radius: 5px;
     background-color: #6B7CDB;
     padding: 0px 20px 20px 20px;
@@ -36,15 +37,11 @@
     box-shadow: 1px 1px 4px #3f4981;
 }
 
-.searchTestRow button:hover {
-    background-color: #F8AD62;
-}
-
 .linksRow {
     margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .link {
@@ -64,10 +61,32 @@
     color: black;
 }
 
+.myTestLink{
+    min-height: 130px;
+}
+
 .link:hover {
     bottom: 1px;
     left: 1px;
     box-shadow: 0px -7px 0 #F8AD62 inset, -1px -1px 0 #F8AD62 inset;
+}
+
+
+.activeTests {
+    flex-grow: 1;
+    max-width: 49%;
+    min-width: 49%;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0.5%;
+    padding: 10px 10px;
+    position: relative;
+    box-shadow: 3px 3px 6px #3f4981;
+    right: 3px;
+    background-color: white;
+    color: black;
 }
 
 @media (max-width: 600px) {
@@ -76,11 +95,10 @@
     }
 }
 
-.activeTests:hover {
-    box-shadow: 3px 3px 6px #3f4981;
-    top: 0px;
-    margin-left: 1px;
-    padding-right: -1px;
+@media (max-width: 700px) {
+    .activeTests {
+        max-width: 100%;
+    }
 }
 
 
@@ -124,7 +142,6 @@
     font-weight: 800;
 }
 
-
 .timeInput {
     position: relative;
     margin-left: 7px;
@@ -142,11 +159,196 @@
 }
 
 .errorPage {
-    padding: 5% 0px;
+    margin-top: 11%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: #000f63;
     font-weight: 600;
     font-size: 20px;
+    align-items: flex-start;
+}
+
+.errorNoShadow {
+    margin: 10px 0px;
+    color: white;
+}
+
+.homePage {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding-top: 30px;
+}
+
+.homePage span {
+    line-height: 30px;
+    margin-bottom: 5px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.homeLink {
+    color: white;
+}
+
+.homeLink:hover {
+    color: #F8AD62;
+}
+
+.account {
+    height: 160px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding-top: 30px;
+}
+
+.logOutButton {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    background-image: url(../icons/logout.png);
+    background-size: cover;
+    position: relative;
+    padding-left: 20px;
+    left: calc(100% - 54px);
+    top: -175px
+}
+
+.editQuestionButton {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    background-image: url(../icons/pencil.png);
+    background-size: cover;
+    position: relative;
+    padding-left: 20px;
+    left: calc(100% - 25px);
+    top: -95px
+}
+
+.footer {
+    padding-top: 10px;
+    margin-top: auto;
+    padding-bottom: 5px;
+    background-color: #6B7CDB;
+    max-width: 100%;
+    min-width: 350px;
+}
+
+.gitLogoPc {
+    width: 80px;
+    height: 70px;
+    margin-right: 15px;
+    background-image: url(../icons/git.png);
+    background-size: cover;
+    display: none;
+}
+
+.gitLogoMobile {
+    min-width: 75px;
+    min-height: 70px;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    background-image: url(../icons/git.png);
+    background-size: cover;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .gitLogoMobile {
+        display: block;
+    }
+}
+
+@media (min-width: 600px) {
+    .gitLogoPc {
+        display: block;
+    }
+
+    .footerTitleRow:first-child {
+        margin-left: 20px;
+    }
+}
+
+.footerRow {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    color: white;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+
+.footerColumn {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footerTitleRow {
+    display: flex;
+}
+
+.copyButton {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    background-image: url(../icons/copy.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.copiedSpan {
+    margin-left: 5px;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-image: url(../icons/success.png);
+    background-size: cover;
+}
+
+.activeCircle {
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background-color: rgb(156, 230, 45);
+    animation: blink 1.5s linear infinite;
+}
+
+.inactiveCircle{
+    animation: none;
+    background-color: #afafaf;
+}
+
+.timeLeft {
+    display: inline-block;
+}
+
+@keyframes blink {
+    0% {
+        background-color: rgb(207, 252, 140);
+    }
+
+    50% {
+        background-color: rgb(139, 190, 61);
+
+    }
+
+    100% {
+        background-color: rgb(207, 252, 140);
+    }
 }

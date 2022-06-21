@@ -12,7 +12,7 @@ const TestsResultsNav = ({ resultsWithMatchingId, test }) => {
 
     return (
         <div>
-            <TitleElement text={`Результати тесту "${test.name}"`} />
+            <TitleElement addedClass="secondTitle" text={`Результати тесту "${test.name}"`} />
             <div className={styles.linksRow}>
                 {resultsWithMatchingId.length > 0 ?
                     resultsWithMatchingId.map(result => <ResultLink result={result} key={result._id} />)

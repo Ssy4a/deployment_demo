@@ -6,22 +6,24 @@ import { useEffect } from 'react';
 
 export const SideMenu = () => {
 
+    const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+
     const useOnClickOutside = (ref, handler) => {
         useEffect(() => {
             const listener = event => {
-                /*                if (!ref.current || ref.current.contains(event.target)) {
-                                    return;
-                                }*/
+                event.stopPropagation()
+                if (event.target.name === "button") {
+                    return;
+                }
                 handler(event);
             };
-            document.addEventListener('mousedown', listener);
+            window.addEventListener('mousedown', listener, { capture: true });
             return () => {
-                document.removeEventListener('mousedown', listener);
+                window.removeEventListener('mousedown', listener);
             };
         }, [ref, handler]);
     };
 
-    const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
     const getMenuClasses = () => {
         if (isMenuOpen) return styles.menuIsOpen
         return
@@ -36,7 +38,7 @@ export const SideMenu = () => {
 
     return (
         <div ref={node} className={`${styles.menu} ${getMenuClasses()}`}>
-            <Navigation className={styles.menuColumn} linkClassName={styles.menuLink} />
+            <Navigation className={styles.menuColumn} linkClassName={styles.menuLink} activeLinkClassName={styles.activeLinkBurger} />
         </div>
     )
 };

@@ -1,7 +1,6 @@
 import React from 'react'
 import TestResultNavLink from './TestResultNavLink';
 import styles from "../../styles/content.module.css"
-import TitleElement from './../UI/TitleElement';
 import { Link } from 'react-router-dom';
 
 const TestResultNav = ({ myTests }) => {
@@ -16,7 +15,6 @@ const TestResultNav = ({ myTests }) => {
 
     return (
         <div>
-            <TitleElement text="Оберіть тест, результати якого ви хотіли б переглянути:" />
             {myTests.length === 0
                 ? <NoTestResults />
                 : <div className={styles.linksRow}>

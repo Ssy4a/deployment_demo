@@ -18,6 +18,8 @@ const TestConstructor = ({ testToEditId }) => {
     const [validationError, setValidationError] = useState(null)
     const [error, setError] = useState(null)
 
+    console.log(newTest)
+
     const passEditingTestData = (testToEdit) => { dispatch({ type: "PASS_EDITING_TEST_DATA", payload: testToEdit }) }
     const addNewTestItem = () => { dispatch({ type: "ADD_NEW_TESTITEM" }) }
     const onDescriptionChange = (description) => { dispatch({ type: "ON_DESCRIPTION_CHANGE", payload: description }) }
@@ -25,7 +27,9 @@ const TestConstructor = ({ testToEditId }) => {
 
     useEffect(() => {
         if (testToEditId) {
-            fetch(`${UrlAPI}/tests/test/${testToEditId}`)
+            fetch(`${UrlAPI}/tests/test/${testToEditId}`, {
+                headers: { "Authorization": `Bearer ${localStorage.getItem("JWTAccessToken")}` }
+            })
                 .then(res => res.json())
                 .then(json => passEditingTestData(json))
         }

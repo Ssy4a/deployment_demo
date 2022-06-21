@@ -6,12 +6,14 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchUserTests } from '../../asyncActions/userTests';
 import TestResultNav from './TestResultNav';
-import { Route } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import TestResultsRouter from './ResultItems/TestResultsRouter';
 import MessageElement from './../UI/MessageElement';
 import { UrlAPI } from './../../constants';
 import styles from "../../styles/content.module.css"
+import TitleElement from './../UI/TitleElement';
+import ErrorPage from './../Pages/ErrorPage';
 
 const TestsResultsRoutes = () => {
 
@@ -66,16 +68,20 @@ const TestsResultsRoutes = () => {
     }
 
     return (
-        <div className={styles.contentFont}>
-            {loading || myTests.isLoading
-                ? <LoadingElement />
-                : <Routes>
-                    <Route element={<TestResultNav getIsLoading={getIsLoading} myTests={myTests.myTests} />} path="" />
-                    {myTests.myTests.map(test => <Route element={<TestResultsRouter results={results} test={test} />} key={test._id} path={getPath(test._id)} />)}
-                </Routes>
-            }
-            {error && <MessageElement type="error" message={error} />}
-        </div>
+        <>
+            <div className={styles.contentFont}>
+                <TitleElement text="Оберіть тест, результати якого ви хотіли б переглянути:" />
+                {loading || myTests.isLoading
+                    ? <LoadingElement />
+                    : <Routes>
+                        <Route path="*" element={<ErrorPage notExistingItemName="тесту" backButtonText="Назад до списку тестів" addedClass="errorNoShadow" />} />
+                        <Route element={<TestResultNav getIsLoading={getIsLoading} myTests={myTests.myTests} />} path="" />
+                        {myTests.myTests.map(test => <Route element={<TestResultsRouter results={results} test={test} />} key={test._id} path={getPath(test._id)} />)}
+                    </Routes>
+                }
+                {error && <MessageElement type="error" message={error} />}
+            </div>
+        </>
     )
 }
 

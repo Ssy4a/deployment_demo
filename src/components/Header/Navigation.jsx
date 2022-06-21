@@ -1,16 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = ({ className, linkClassName }) => {
+const Navigation = ({ className, linkClassName, activeLinkClassName }) => {
 
     return (
         <div className={className}>
-            <Link name="link" onClick={()=>console.log("cock")} className={linkClassName} to="/takeATest">Пройти тест</Link>
-            <Link name="link" className={linkClassName} to="/testsResults">Результати тестів</Link>
-            <Link name="link" className={linkClassName} to="/newTest">Новий тест</Link>
-            <Link name="link" className={linkClassName} to="/myTests">Мої тесты</Link>
-            <Link name="link" className={linkClassName} to="/activeTests">Активні тести</Link>
-            <Link name="link" className={linkClassName} to="/account">Аккаунт</Link>
+
+            <NavLink name="link" className={({ isActive }) => linkClassName + (isActive ? ` ${activeLinkClassName}` : "")} to="/takeATest">Пройти тест</NavLink>
+            <NavLink name="link" className={({ isActive }) => linkClassName + (isActive ? ` ${activeLinkClassName}` : "")} to="/testsResults">Результати тестів</NavLink>
+            <NavLink name="link" className={({ isActive }) => linkClassName + (isActive ? ` ${activeLinkClassName}` : "")} to="/newTest">Новий тест</NavLink>
+            <NavLink name="link" className={({ isActive }) => linkClassName + (isActive ? ` ${activeLinkClassName}` : "")} to="/myTests">Мої тесты</NavLink>
+            <NavLink name="link" className={({ isActive }) => linkClassName + (isActive ? ` ${activeLinkClassName}` : "")} to="/activeTests">Активні тести</NavLink>
+            <NavLink name="link" className={({ isActive }) => linkClassName + (isActive ? ` ${activeLinkClassName}` : "")} to="/account">Аккаунт</NavLink>
         </div>
     )
 }

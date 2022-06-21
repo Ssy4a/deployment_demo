@@ -15,14 +15,14 @@ import { Route, Routes } from 'react-router-dom';
 
 const AppAuthorized = () => {
     return (
-        <div>
+        <div className="container">
             <NavState>
                 <Header />
             </NavState>
-            <div className="container">
+            <div>
                 <div className={styles.content}>
                     <Routes>
-                        <Route path="*" element={< ErrorPage />} />
+                        <Route path="*" element={< ErrorPage notExistingItemName="сторінки" backButtonText="Домашня сторінка" />} />
                         <Route path="/" element={< HomePage />} />
                         <Route path="/takeATest/*" element={< TakeATest />} />
                         <Route path="/newTest" element={< NewTest />} />

@@ -10,6 +10,7 @@
     font-size: 20px;
 }
 
+
 .inputElement {
     width: 100%;
     position: relative;
@@ -49,6 +50,13 @@
     margin-right: 20px;
     min-width: 360px;
     max-width: 650px;
+}
+
+@media (max-width: 915px) {
+    .testSearchInput {
+        max-width: 100%;
+        min-width: 100%;
+    }
 }
 
 .newAnswerInput {
@@ -114,8 +122,19 @@
     box-shadow: 1px 1px 4px #3f4981;
 }
 
+.button:hover {
+    background-color: #F8AD62;
+}
+
+.button:disabled {
+    background-color: rgb(209, 209, 209);
+    color: #9899a0;
+    box-shadow: none;
+    cursor: default;
+}
+
 .accountButton {
-    margin-top: 10px;
+    margin-top: 30px;
     width: 220px;
 }
 
@@ -136,10 +155,6 @@
     height: 55px;
 }
 
-.finishTest:hover {
-    background-color: #F8AD62;
-}
-
 .saveTest {
     width: 100%;
     height: 70px;
@@ -156,12 +171,30 @@
 
 .newQuestion {
     width: 100%;
-    min-width: 338px;
+    min-width: 300px;
     background-color: transparent;
     border-radius: 20px;
     border: 3px dashed white;
     height: 70px;
     margin: 10px 0px 10px 0px;
+}
+
+@media (max-width: 355px) {
+    .newQuestion {
+        margin: 10px 10px 10px 5px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 340px) {
+    .newQuestion {
+        margin: 10px 10px 10px 20px;
+    }
+
+    .saveTest {
+        min-width: 290px;
+        margin: 10px 10px 10px 5px;
+    }
 }
 
 .newQuestion ::before {
@@ -172,6 +205,10 @@
     border: 0px solid #77D520;
     background-color: #77D520;
     border-radius: 50%;
+}
+
+.newQuestion:hover {
+    background-color: #7888dd;
 }
 
 .message {
@@ -232,6 +269,10 @@
     animation: loading 1.2s linear infinite;
 }
 
+.takeATestTimer {
+    color: white;
+}
+
 @keyframes loading {
     0% {
         transform: rotate(0deg);
@@ -240,4 +281,111 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.homeTitle {
+    position: relative;
+    top: 5px;
+    color: #465080;
+    background-color: #E0E2EE;
+    padding: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 1px -1px 5px 0px #b4badf;
+    min-width: 350px;
+}
+
+.modal {
+    padding: 0px 10px;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.4s all;
+    pointer-events: none;
+}
+
+.modal.active {
+    transition: 0.4s all;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modalContent {
+    max-width: 500px;
+    padding: 0px 30px 30px 30px;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.modalButtonRow {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.modalButton {
+    height: 45px;
+    margin-right: 15px;
+    padding: 15px;
+    box-shadow: none;
+}
+
+
+.modalButtonRow :first-child {
+    background-color: rgb(255, 96, 68);
+}
+
+.modalButtonRow :first-child:hover {
+    background-color: rgb(255, 121, 97);
+}
+
+.modalTitleRow {
+    display: flex;
+}
+
+.modalTitle {
+    color: #404980;
+    font-size: 19px;
+    padding-bottom: 10px;
+}
+
+.modalSecondTitle {
+    font-weight: 600;
+    padding-top: 0px;
+    color: #404980;
+    font-size: 18px;
+}
+
+.warningIcon {
+    position: relative;
+    margin-right: 10px;
+    top: 30px;
+    width: 25px;
+    height: 22px;
+    background-image: url(../icons/warning.png);
+    background-size: cover;
+}
+
+.changeAccountTitle {
+    color: #3f4981;
+}
+
+.blackLoading::after {
+    border: 6px solid #3f4981;
+    border-color: #3f4981 transparent #3f4981 transparent;
+    width: 60px;
+    height: 60px;
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+.blackLoading {
+    width: 60px;
+    height: 60px;
 }

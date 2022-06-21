@@ -4,27 +4,52 @@ import styles from "../../styles/content.module.css"
 import { useState } from 'react';
 import { getDate } from './../../functions/getUkrMonth';
 import TitleElement from './../UI/TitleElement';
+import { useSelector } from 'react-redux';
+import TimerElement from './../UI/TimerElement';
+import LoadingElement from './../UI/LoadingElement';
 
-const MyTest = ({ myTests, userId }) => {
+const MyTest = ({ myTests }) => {
 
+    const activeTests = useSelector(state => state.activeTests)
+    console.log(activeTests)
     const [testIsOpen, setTestIsOpen] = useState(false)
     const rowToDate = (date) => {
         const updatedAt = new Date(date)
         return getDate(updatedAt)
     }
 
+    const MyTestLink = ({ test, id }) => {
+
+        const isActive = () => {
+            const activeArr = activeTests.tests.filter(item => myTests.myTests[id]._id === item.myTestId)
+            if (activeArr.length > 0) return activeArr[0]
+            return false
+        }
+
+        return (
+            <Link className={`${styles.link} ${styles.myTestLink}`} to={test._id} onClick={() => setTestIsOpen(!testIsOpen)}>
+                <div><b>Назва:</b> {test.name}</div>
+                <div><b>Опис:</b> {test.description}</div>
+                <div><b>Дата оновлення:</b> {rowToDate(test.updatedAt)}</div>
+                <div className={isActive() ? styles.activeCircle : `${styles.activeCircle} ${styles.inactiveCircle}`}></div>
+                <div className={styles.timeLeft}>
+                    {isActive()
+                        ? <TimerElement test={isActive()} />
+                        : <div>Тест не активний</div>}
+                </div>
+            </Link>
+        )
+    }
+
     return (
         <div>
             <TitleElement text="Ваші тести:" />
-            <div className={styles.linksRow}>
-                {myTests.myTests.map(test =>
-                    <Link className={styles.link} to={test._id} onClick={() => setTestIsOpen(!testIsOpen)}>
-                        <div><b>Назва:</b> {test.name}</div>
-                        <div><b>Опис:</b> {test.description}</div>
-                        <div><b>Дата оновлення:</b> {rowToDate(test.updatedAt)}</div>
-                    </Link>
-                )}
-            </div>
+            {activeTests.isLoading
+                ? <LoadingElement />
+                : <div className={styles.linksRow}>
+                    {myTests.myTests.map((test, id) => <MyTestLink test={test} id={id} />)}
+                </div>
+            }
         </div>
     )
 }

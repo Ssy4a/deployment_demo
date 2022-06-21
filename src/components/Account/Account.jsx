@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import MessageElement from '../UI/MessageElement';
 import styles from "../../styles/content.module.css"
 import TitleElement from './../UI/TitleElement';
-import ButtonElement from './../UI/ButtonElement';
 import LoadingElement from './../UI/LoadingElement';
 import { UrlAPI } from './../../constants';
+import ModalElement from './../UI/ModalElement';
+import AccountChangeForm from './AccountChangeForm';
 
 const Account = () => {
 
@@ -14,6 +15,7 @@ const Account = () => {
     const navigate = useNavigate()
     const [userInformation, setUserInformation] = useState(null)
     const [error, setError] = useState(null)
+    const [modalActive, setModalActive] = useState(false)
 
     const logOut = () => {
         localStorage.removeItem("JWTAccessToken")
@@ -42,13 +44,18 @@ const Account = () => {
 
     if (userInformation) {
         return (
-            <div className={styles.contentFont}>
-                <TitleElement text="Аккаунт" />
-                <TitleElement text={`Логін : ${userInformation.username}`} addedClass="secondTitle" />
-                <TitleElement text={`Ім'я : ${userInformation.name}`} addedClass="secondTitle" />
-                <ButtonElement addedClass="accountButton" text="Редагувати аккаунт" />
-                <ButtonElement onClick={logOut} addedClass="accountButton" text="Вихід з аккаунту" />
-            </div>
+            <>
+                <TitleElement text="Аккаунт" addedClass="homeTitle" />
+                <div className={`${styles.contentFont} ${styles.account}`}>
+                    <TitleElement text={`Логін : ${userInformation.username}`} addedClass="secondTitle" />
+                    <TitleElement text={`Ім'я : ${userInformation.name}`} addedClass="secondTitle" />
+                    <button onClick={() => setModalActive(true)} className={styles.editQuestionButton} text="Редагувати аккаунт" />
+                    <button onClick={logOut} className={styles.logOutButton} text="Вихід" />
+                    <ModalElement modalActive={modalActive} setModalActive={setModalActive}>
+                        <AccountChangeForm userInformation={userInformation} setUserInformation={setUserInformation} />
+                    </ModalElement>
+                </div>
+            </>
         )
     }
     else if (error) return <MessageElement type="error" message={error} />

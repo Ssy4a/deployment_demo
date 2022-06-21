@@ -8,14 +8,12 @@ import { SideMenu } from './SideMenu';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className='container'>
-        <nav className={styles.row}>
-          <SideMenu />
-          <BurgerMenuButton />
-            <Link className={styles.homeLink} to="/">Головна сторінка</Link>
-          <Navigation className={styles.rightRow} />
-        </nav>
-      </div>
+      <nav className={styles.row}>
+        <SideMenu />
+        <BurgerMenuButton />
+        <Link className={styles.homeLink} to="/">Головна сторінка</Link>
+        <Navigation className={styles.rightRow} activeLinkClassName={styles.activeLink} />
+      </nav>
     </header>
   )
 }

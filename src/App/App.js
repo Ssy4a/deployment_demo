@@ -6,6 +6,7 @@ import AppAuthorized from './AppAuthorized';
 import GlobalStyle from "../styles/GlobalStyles";
 import AppNotAuthorized from "./AppNotAuthorized";
 import { UrlAPI } from "../constants";
+import Footer from "../components/Footer";
 
 function App() {
 
@@ -47,12 +48,13 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="wrapper">
       {loading
         ? <LoadingElement />
         : <AppAuthorizedCheck />
       }
       <GlobalStyle/>
+      <Footer/>
     </div>
   )
 }

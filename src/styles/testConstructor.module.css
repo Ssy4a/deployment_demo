@@ -8,6 +8,7 @@
     padding: 0px 20px;
 }
 
+
 .testInfo {
     display: inline-block;
 }
@@ -23,12 +24,25 @@
 }
 
 .testManipulation button {
-    width: 220px;
+    width: 200px;
 }
 
 .testRow {
     display: flex;
     justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    .testManipulation {
+        display: block;
+        position: static;
+    }
+    .testRow {
+        display: block;
+    }
+    .testManipulation button {
+        width: 100%
+    }
 }
 
 .test {
@@ -49,6 +63,7 @@
 }
 
 .testItem {
+    min-width: 300px;
     border-radius: 5px;
     padding: 15px 15px;
     margin: 10px 0px 2px 0px;
@@ -75,8 +90,8 @@
     flex-wrap: nowrap;
     align-items: center;
     position: relative;
-    right: 49px;
-    width: calc(100% + 47px);
+    right: 45px;
+    width: calc(100% + 44px);
 }
 
 .checkbox {
@@ -165,3 +180,10 @@
     border-bottom: 5px solid #ffcec7;
 }
 
+
+@media (max-width: 350px) {
+    .testConstructor {
+        min-width: 350px;
+        padding: 0px;
+    }
+}

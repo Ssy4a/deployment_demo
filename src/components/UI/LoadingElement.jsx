@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from "../../styles/UIElements.module.css"
 
-const LoadingElement = () => {
+const LoadingElement = ({ addedClass }) => {
   return (
-    <div className={styles.loading}></div>
+    <div className={`${styles.loading} ${styles[addedClass]}`}></div>
   )
 }
 

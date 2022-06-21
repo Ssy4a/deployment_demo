@@ -9,9 +9,9 @@
 }
 
 .homeLink {
+    margin-right: 25px;
     position: relative;
     bottom: 5px;
-    margin-right: 25px;
     text-decoration: none;
     background-color: #F8AD62;
     border-radius: 10px;
@@ -26,13 +26,13 @@
     position: relative;
     top: 10px;
     height: 100%;
-    width: 70%;
+    width: 73%;
     display: flex;
     justify-content: space-between;
 }
 
 .rightRow>* {
-    padding: 0px 10px;
+    margin: 0px 10px;
     text-decoration: none;
     font-weight: bold;
     color: black;
@@ -46,7 +46,17 @@
     }
 }
 
+@media (max-width: 350px) {
+    .homeLink {
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+}
+
+
 .burgerMenuButton span {
+    right: 55px;
+    position: relative;
     display: block;
     width: 40px;
     height: 5px;
@@ -55,7 +65,9 @@
 }
 
 .burgerMenuButton button {
-    display: block;
+    cursor: pointer;
+    left: 40px;
+    position: relative;
     transform-origin: 16px 11px;
     float: left;
     margin-right: 29px;
@@ -63,6 +75,9 @@
     border: 0;
     padding: 8px 0px 0px 40px;
     background-color: transparent;
+    height: 40px;
+    width: 40px;
+    z-index: 100;
 }
 
 .active span {
@@ -136,4 +151,12 @@
 .menuLink:last-child {
     padding: 10px 0px 10px 0px;
     border-top: 3px solid white;
+}
+
+.activeLink {
+    border-bottom: 3px solid black;
+}
+
+.activeLinkBurger{
+    color: #F8AD62;
 }

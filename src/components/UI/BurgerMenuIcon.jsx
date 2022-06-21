@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { MenuContext } from './../../context/menuContext';
 import styles from "../../styles/header.module.css"
 
 const BurgerMenuButton = () => {
     const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+    const buttonRef = useRef()
 
-    const onBurgerMenuButtonClick = () => {
-        console.log("burgir")
-        toggleMenuMode();
-    };
+    const onBurgerMenuButtonClick = (e) => {
+        toggleMenuMode()
+    }
 
     const Line = () => {
         return (
-            <span className={styles.burgerMenuLine}></span>
+            <span name='button' className={styles.burgerMenuLine}></span>
         )
     }
 
@@ -23,9 +23,9 @@ const BurgerMenuButton = () => {
 
     return (
         <div className={burgerMenuButtonStyles()}>
-            <button
+            <button name='button' ref={buttonRef}
                 aria-label="Открыть главное меню"
-                onClick={onBurgerMenuButtonClick}
+                onClickCapture={e => onBurgerMenuButtonClick(e)}
             >
                 <Line />
                 <Line />

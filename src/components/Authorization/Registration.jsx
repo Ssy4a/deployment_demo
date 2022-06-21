@@ -39,11 +39,10 @@ const Registration = () => {
 
   return (
     <div className={styles.authorizationWrapper}>
-
       <form className={styles.authorizationFont} onSubmit={handleSubmit(onSubmit)}>
         <TitleElement text="Форма реєстрації" />
         <div className={styles.authorizationInput}>
-          <input type="text" required  autocomplete="off"
+          <input type="text" required autocomplete="off"
             {...register('username', {
               required: "Обов`язкове поле",
               minLength: { value: 5, message: "Мінімальна довжина логіну - 5 символів" }
@@ -53,7 +52,7 @@ const Registration = () => {
         </div>
 
         <div className={styles.authorizationInput}>
-          <input type="text" required  autocomplete="off"
+          <input type="text" required autocomplete="off"
             {...register('name', {
               required: "Обов`язкове поле",
               minLength: { value: 4, message: "Мінімальна довжина нікнейму - 4 символів" }
@@ -62,10 +61,10 @@ const Registration = () => {
           <span className={styles.message}>*Власнику теста буде доступно ваше ім`я </span>
           {errors.name && <p>{errors.name.message}</p>}
         </div>
-        <br/>
+        <br />
 
         <div className={styles.authorizationInput}>
-          <input type="password" required 
+          <input type="password" required
             {...register('password', {
               required: "Обов`язкове поле",
               minLength: { value: 8, message: "Мінімальна довжина паролю - 8 символів" }
@@ -75,7 +74,7 @@ const Registration = () => {
         </div>
 
         <div className={styles.authorizationInput}>
-          <input type="password" required  
+          <input type="password" required
             {...register('password_repeat', ({
               validate: value => value === password.current || "Паролі не збігаються"
             }))} />
@@ -85,7 +84,7 @@ const Registration = () => {
 
         <input className={styles.submitButton} type="submit" value={"Зареєструватися"} />
         {errorMessage && <MessageElement type="error" message={errorMessage} />}
-        {message && <MessageElement message={message} />}
+        {message && <MessageElement type="error" message={message} />}
         <div className={styles.message}>Є аккаунт? <Link className={styles.link} to="/">Увійти</Link> </div>
       </form>
     </div>

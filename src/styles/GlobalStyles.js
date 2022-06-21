@@ -29,10 +29,15 @@ const GlobalStyle = createGlobalStyle`
     dd {
       margin: 0;
     }
+
+    html{
+      min-height: 100%;
+    }
     
     body {
-      min-height: 100vh;
-      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
       scroll-behavior: smooth;
       text-rendering: optimizeSpeed;
       line-height: 1.5;
@@ -73,8 +78,15 @@ const GlobalStyle = createGlobalStyle`
       }
     }
     .container {
+        min-height: 100%;
         max-width: 980px;
         margin: auto;
+        flex: 1 1 auto;
+    }
+    .wrapper{
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     input,
     textArea {outline:none;}

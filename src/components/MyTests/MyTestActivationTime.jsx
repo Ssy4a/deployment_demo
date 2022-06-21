@@ -9,6 +9,12 @@ const MyTestActivationTime = ({ startTesting, isActive }) => {
 
     const [time, setTime] = useState({ hours: "0", minutes: "0" })
 
+    const warningCheck = () => {
+        if (isActive()) return false
+        if (timeIsInvalid()) return true
+        return false
+    }
+
     const onStartTestingButtonClick = ({ minutes, hours }) => {
         startTesting(hours * 3600000 + minutes * 60000)
     }
@@ -44,7 +50,7 @@ const MyTestActivationTime = ({ startTesting, isActive }) => {
                     onChange={e => onTimeInputsChange(e.target)} /> хвилин.
             </span>
             <ButtonElement addedClass="startTesting" disabled={startTestingValidationFail()} onClick={() => onStartTestingButtonClick(time)} text="Почати тестування" />
-            {timeIsInvalid() && <MessageElement type="warning" message="Введіть час, доступний на проходження тесту:" />}
+            {warningCheck() &&  <MessageElement type="warning" message="Введіть час, доступний на проходження тесту:" />}
         </div>
     )
 }
