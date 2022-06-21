@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { fetchUserTests } from '../../asyncActions/userTests';
 import LoadingElement from '../UI/LoadingElement';
 import MyTest from './MyTest';
