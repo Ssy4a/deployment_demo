@@ -83,7 +83,7 @@ const TakeATestForm = () => {
         <div>
             <TitleElement text={test.name} />
             <TitleElement text={test.description} addedClass="secondTitle" />
-            <TimerElement test={test} addedClass="takeATestTimer" />
+            <TimerElement test={test} addedClass="takeATestTimer" takeATest={true} />
             <div>{test.testItems.map((item, id) =>
                 <TakeATestItem testItem={item} key={item._id} testItemId={id} isRightArr={isRightArr} setIsRightArr={setIsRightArr} />)}</div>
             <ButtonElement onClick={submitHandler} addedClass="saveTest" text="Відправити" />

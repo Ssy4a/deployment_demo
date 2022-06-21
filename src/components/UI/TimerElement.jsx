@@ -5,7 +5,7 @@ import { fetchActiveTests } from './../../asyncActions/activeTests';
 import { useDispatch } from 'react-redux';
 import styles from "../../styles/UIElements.module.css"
 
-const TimerElement = ({ test, addedClass }) => {
+const TimerElement = ({ test, addedClass, takeATest }) => {
 
     const [secLeft, setSecLeft] = useState("")
     const timer = useRef()
@@ -43,7 +43,9 @@ const TimerElement = ({ test, addedClass }) => {
     }
 
     return (
-        <div className={styles[addedClass]}><b>Залишилось часу:</b> {convertMsToTime(secLeft)} </div>
+        <div className={styles[addedClass]}>
+            <b>Залишилось часу:</b> {convertMsToTime(secLeft)}
+        </div>
     )
 }
 

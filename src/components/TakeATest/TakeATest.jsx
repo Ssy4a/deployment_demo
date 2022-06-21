@@ -11,7 +11,7 @@ const TakeATest = () => {
         <div className={styles.contentFont}>
             <Routes>
                 <Route path="/:activeTestId" element={<TakeATestForm />} />
-                <Route path='/' element={<TakeATestSearch/>}/>
+                <Route path='/' element={<TakeATestSearch />} />
             </Routes>
         </div>
     )
