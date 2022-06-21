@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { UrlAPI } from './../../constants';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import TitleElement from './../UI/TitleElement';
 import styles from "../../styles/authorization.module.css";
 import MessageElement from './../UI/MessageElement';
@@ -11,7 +11,7 @@ import AccountPasswordChange from './AccountPasswordChange';
 
 const AccountChangeForm = ({ userInformation, setUserInformation }) => {
 
-    const { register, handleSubmit, formState: { errors }, watch } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const [error, setError] = useState(null)
     const [changedInfo, setChangedInfo] = useState(userInformation)
     const [loading, setLoading] = useState(false)

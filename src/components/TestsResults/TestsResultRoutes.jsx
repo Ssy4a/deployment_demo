@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchUserTests } from '../../asyncActions/userTests';
 import TestResultNav from './TestResultNav';
-import { Route, Navigate } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import TestResultsRouter from './ResultItems/TestResultsRouter';
 import MessageElement from './../UI/MessageElement';
