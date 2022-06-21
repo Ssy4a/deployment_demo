@@ -16,9 +16,9 @@ const Footer = () => {
                                 <div> Ви можете переглянути код даного інтернет-додатку в репозиторіях GitHub:</div>
                             </div>
                             <div style={{ marginLeft: 20, marginRight: 20 }}>
-                                <div> Api: <a className={styles.homeLink} href="https://github.com/Ssy4a/diploma_backend"
+                                <div> Api: <a className={styles.homeLink} href="https://github.com/Ssy4a/diploma_backend" rel="noopener noreferrer"
                                     target="_blank">https://github.com/Ssy4a/diploma_backend</a></div>
-                                <div>Інтерфейс: <a className={styles.homeLink} href="https://github.com/Ssy4a/diploma_frontend"
+                                <div>Інтерфейс: <a className={styles.homeLink} href="https://github.com/Ssy4a/diploma_frontend" rel="noopener noreferrer"
                                     target="_blank">https://github.com/Ssy4a/diploma_frontend</a></div>
                             </div>
                         </div>
